@@ -1,0 +1,17 @@
+# https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#adding-an-action-from-the-same-repository
+# https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions
+name: 'Get & Cache Depencencies'
+description: 'Get the dependecies via NPM and cache them'
+runs:
+  using: composite
+  steps:
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+    - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci
+      shell: bash
