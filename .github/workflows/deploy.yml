@@ -74,7 +74,7 @@ jobs:
           # bucket-region: us-east-2
       - name: Output URL-info
         run: |
-          echo "Live URL: ${{ teps.deploy.outputs.website-url }}"
+          echo "Live URL: ${{ steps.deploy.outputs.website-url }}"
 
   # information:
   #   runs-on: ubuntu-latest
