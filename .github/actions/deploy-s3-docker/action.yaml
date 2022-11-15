@@ -1,0 +1,21 @@
+# https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-docker-container-actions
+
+name: 'Deploy to AWS S3'
+description: 'Deploy to Statis website via AWS S3'
+inputs: # input params for javascript code
+  bucket:
+    description: 'The S3 bucket name.'
+    required: true
+  bucket-region:
+    description: 'The region of the S3 bucket.'
+    required: false
+    default: 'us-east-1'
+  dist-folder:
+    description: 'The folder containing the deployable files.'
+    required: true
+outputs:
+  website-url:
+    description: 'The URL of the deployed website.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
