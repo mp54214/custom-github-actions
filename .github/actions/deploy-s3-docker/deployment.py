@@ -16,7 +16,7 @@ def run():
         for file in files:
             s3_client.upload_file(os.path.join(root, file), bucket, file)
 
-    website_url = f'http://{bucket}.s3-website-{bucket_region}.amazonaws.com'
+    website_url = f'http://{bucket}.s3-website.{bucket_region}.amazonaws.com'
     print(f'::set-output name=website-url::{website_url}')
 
 
