@@ -68,10 +68,11 @@ jobs:
 
       - name: Get AWS persmissions
         uses: aws-actions/configure-aws-credentials
-        with: # https://github.com/aws-actions/configure-aws-credentials
+        # https://github.com/aws-actions/configure-aws-credentials
+        with:
           role-to-assume: arn:aws:iam::500079396767:role/GithubDemo_MY
-          aws-region: us-east-1
-          
+          aws-region: us-east-2
+
       - name: Deploy site
         id: deploy
         # uses: ./.github/actions/deploy-s3-javascript
