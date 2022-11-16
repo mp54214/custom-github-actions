@@ -67,7 +67,7 @@ jobs:
         run: ls
 
       - name: Get AWS persmissions
-        uses: aws-actions/configure-aws-credentials
+        uses: aws-actions/configure-aws-credentials@v1
         # https://github.com/aws-actions/configure-aws-credentials
         with:
           role-to-assume: arn:aws:iam::500079396767:role/GithubDemo_MY
